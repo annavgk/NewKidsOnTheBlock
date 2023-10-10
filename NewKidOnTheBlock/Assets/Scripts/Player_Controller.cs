@@ -65,7 +65,7 @@ public class Player_Controller : MonoBehaviour
      void Update()
     {
         
-       if(Input.GetKeyDown(KeyCode.UpArrow))
+       if(Input.GetKeyDown(KeyCode.Space))
        {
         _jumped = true;
        }
