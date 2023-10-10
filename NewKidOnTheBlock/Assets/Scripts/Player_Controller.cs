@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Sean Feedback:
+/// 1. Make sure that you do not use _ in class names. Follow C# naming conventions. This should be PlayerController
+/// 2. This class is good, but there should be separate classes or objects for the Square, Triangle, and Circle. You do not want to have all of the logic in this one class. They are three separate objects that all inherit from PlayerController. They will also have different physics rules as well, so having them all have the exact same RigidBody is an issue. 
+/// 3. Why are you creating a collider on each update instead of just making a collider? You do not want to create a new collider every frame; that's extremely inefficient. You can have multiple colliders on an object.
+/// 4. Have rough code done for all 3 object types, as well as switching logic, done ASAP. This should have been implemented by the 11th, as having it at least working in some 
+/// 
+/// </summary>
 public class Player_Controller : MonoBehaviour
 {
     [SerializeField] private float _jumpForce = 400f;
@@ -39,7 +47,7 @@ public class Player_Controller : MonoBehaviour
      void FixedUpdate() 
     {
         //creates circle collider that checks to see if any gameobjects within its radius are part of the ground layer and sets grounded to true if it does
-		Collider2D collider = Physics2D.OverlapCircle(_groundCheck.position, _groundCheckRadius, _groundLayer);
+		Collider2D collider = Physics2D.OverlapCircle(_groundCheck.position, _groundCheckRadius, _groundLayer); 
         if(collider != null)
         {
             if (collider.gameObject != gameObject)
