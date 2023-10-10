@@ -8,7 +8,7 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private float _movementSmoothing = 0.5f;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Transform _groundCheck;
-    const float _groundCheckRadius = .2f;
+    const float _groundCheckRadius = .01f;
     private bool _isGrounded;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     private Vector3 _velocity = Vector3.zero;
@@ -64,8 +64,29 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
      void Update()
     {
-        
-       if(Input.GetKeyDown(KeyCode.UpArrow))
+        //creates circle collider that checks to see if any gameobjects within its radius are part of the ground layer and sets grounded to true if it does
+        Collider2D collider = Physics2D.OverlapCircle(_groundCheck.position, _groundCheckRadius, _groundLayer);
+        if (collider != null)
+        {
+            if (collider.gameObject != gameObject)
+            {
+                _isGrounded = true;
+            }
+            else
+            {
+                _isGrounded = false;
+            }
+        }
+        else
+        {
+            _isGrounded = false;
+        }
+
+
+        Move((Input.GetAxisRaw("Horizontal") * Speed) * Time.fixedDeltaTime, _jumped);
+        _jumped = false;
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
        {
         _jumped = true;
        }
