@@ -14,7 +14,7 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
-        _player = FindObjectOfType<PlayerController_a>().gameObject;
+        
         currentLives = maxLives;
     }
 

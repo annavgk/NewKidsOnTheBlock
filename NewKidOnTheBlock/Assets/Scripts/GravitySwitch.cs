@@ -14,48 +14,52 @@ public class GravitySwitch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.GetComponent<TriangleController>().active == true)
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            switch (direction)
+            if (other?.GetComponent<TriangleController>().active == true)
             {
-                case "up":
-                    if (Physics2D.gravity == new Vector2(0, 9.8f))
-                    {
-                        Secondary();
+                switch (direction)
+                {
+                    case "up":
+                        if (Physics2D.gravity == new Vector2(0, 9.8f))
+                        {
+                            Secondary();
+                            break;
+                        }
+                        Physics2D.gravity = new Vector2(0, 9.8f);
                         break;
-                    }
-                    Physics2D.gravity = new Vector2(0, 9.8f);
-                    break;
-                case "down":
-                    if (Physics2D.gravity == new Vector2(0, -9.8f))
-                    {
-                        Secondary();
+                    case "down":
+                        if (Physics2D.gravity == new Vector2(0, -9.8f))
+                        {
+                            Secondary();
+                            break;
+                        }
+                        Physics2D.gravity = new Vector2(0, -9.8f);
                         break;
-                    }
-                    Physics2D.gravity = new Vector2(0, -9.8f);
-                    break;
-                case "left":
-                    if (Physics2D.gravity == new Vector2(-9.8f, 0))
-                    {
-                        Secondary();
+                    case "left":
+                        if (Physics2D.gravity == new Vector2(-9.8f, 0))
+                        {
+                            Secondary();
+                            break;
+                        }
+                        Physics2D.gravity = new Vector2(-9.8f, 0);
                         break;
-                    }
-                    Physics2D.gravity = new Vector2(-9.8f, 0);
-                    break;
-                case "right":
-                    if (Physics2D.gravity == new Vector2(9.8f, 0))
-                    {
-                        Secondary();
+                    case "right":
+                        if (Physics2D.gravity == new Vector2(9.8f, 0))
+                        {
+                            Secondary();
+                            break;
+                        }
+                        Physics2D.gravity = new Vector2(9.8f, 0);
                         break;
-                    }
-                    Physics2D.gravity = new Vector2(9.8f, 0);
-                    break;
-                default:
-                    break;
+                    default:
+                        break;
+                }
             }
+
         }
+    }
         
-     }
 
     private void Secondary()
     {

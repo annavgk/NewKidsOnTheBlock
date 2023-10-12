@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 207780585654060841}
   - component: {fileID: 7626331956108436245}
   - component: {fileID: 5888233216625228124}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 609317809252389963}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 609317810005428941}
   - {fileID: 856923720627469878}
