@@ -30,6 +30,12 @@ public class PlayerController : MonoBehaviour
     private int _spriteCount = 0;//tracks the current sprite we are on
 
 
+
+
+
+
+
+
     void Start()
     {
         _spriteRenderer.sprite = _sprites[0];
