@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Obstacle : MonoBehaviour
+using UnityEngine.UI;
+public class UIController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Image _heart;
     // Start is called before the first frame update
     void Start()
     {
-        if(rb == null)
+        for(int i = 0; i < GameManager.Instance.CurrentHealth; i++)
         {
-            rb = GetComponent<Rigidbody2D>();   
+            Instantiate(_heart,this.transform);
         }
+        _heart.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

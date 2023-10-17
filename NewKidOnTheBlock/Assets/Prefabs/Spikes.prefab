@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 9190432586193025938}
   - component: {fileID: 1555920158402001780}
   - component: {fileID: 1286720762677741621}
+  - component: {fileID: -148042056340802412}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Untagged
@@ -198,6 +199,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-148042056340802412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5092736557582130510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb7b215812a32648a6d09046d127c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  damage: 1
+  PlayerHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6204938093402753503
 GameObject:
   m_ObjectHideFlags: 0
