@@ -32,7 +32,10 @@ public class PlayerController : MonoBehaviour
 
 
 
-
+    private void Awake()
+    {
+        Physics2D.gravity = new Vector2(0,-9.8f);
+    }
 
 
 
