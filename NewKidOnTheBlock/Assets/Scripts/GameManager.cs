@@ -35,6 +35,13 @@ public class GameManager : MonoBehaviour
     {
         
     }
+    private void Update()
+    {
+        if(SceneManager.GetActiveScene().name == "YouWin" || SceneManager.GetActiveScene().name == "YouDie")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     public void ChangeHealth(int damage)
     {
@@ -56,7 +63,7 @@ public class GameManager : MonoBehaviour
         else if(_currentHealth <= 0)
         {
             _currentHealth = _maxHealth;
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("YouDie");
         }
     }
 
@@ -67,8 +74,10 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator Die()
     {
+        Time.timeScale = 0;
         AudioManager.Instance.PlayHurt();
-        yield return new WaitForSeconds(1.097f);
+        yield return new WaitForSecondsRealtime(1.097f);
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
