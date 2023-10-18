@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     {
         if(_currentHealth > 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            StartCoroutine("Die");
         }
         else if(_currentHealth <= 0)
         {
@@ -64,5 +64,11 @@ public class GameManager : MonoBehaviour
     {
         int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextScene);
+    }
+    IEnumerator Die()
+    {
+        AudioManager.Instance.PlayHurt();
+        yield return new WaitForSeconds(1.097f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

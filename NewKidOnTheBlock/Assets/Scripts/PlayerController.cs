@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private string axis = "Horizontal";
     public float Speed = 40f;
     [HideInInspector] public bool canJump = true;
+    [SerializeField] private Animator anim;
 
 
     //[SerializeField] private Sprite square;
@@ -128,8 +129,10 @@ public class PlayerController : MonoBehaviour
             _rb.velocity = Vector3.SmoothDamp(_rb.velocity, targetVelocity, ref _velocity, _movementSmoothing);
             if (_isGrounded && jump)
             {
+                anim.SetTrigger("Jump");
+                AudioManager.Instance.PlayJump();
                 _rb.AddForce(new Vector2(0f, _jumpForce));
-
+                
             }
         }
        
@@ -139,6 +142,7 @@ public class PlayerController : MonoBehaviour
     }
     private void SwapShape() //swaps the shape to the next in the list
     {
+        AudioManager.Instance.PlaySwitch();
         _triController.deactivate();
         _circController.deactivate();
 

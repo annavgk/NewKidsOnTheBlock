@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 207780585654060841}
   - component: {fileID: 7626331956108436245}
   - component: {fileID: 5888233216625228124}
+  - component: {fileID: -39838666179965108}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -162,6 +163,7 @@ MonoBehaviour:
   _jumped: 0
   Speed: 10
   canJump: 1
+  anim: {fileID: -39838666179965108}
   _sprites:
   - {fileID: 21300000, guid: ce405b7351aa47244b4b7dbc7876c0ca, type: 3}
   - {fileID: 21300000, guid: 0e70c9a4bc0916c4cb5d7721f39d02a0, type: 3}
@@ -179,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 207780585654060841}
+  anim: {fileID: -39838666179965108}
   active: 0
 --- !u!114 &5888233216625228124
 MonoBehaviour:
@@ -196,6 +199,29 @@ MonoBehaviour:
   active: 0
   rb: {fileID: 609317809252389962}
   circlePhysics: {fileID: 6200000, guid: 19c229810f15e1d4b8b2a60f4a245866, type: 2}
+  maxVelocity: 30
+  anim: {fileID: -39838666179965108}
+--- !u!95 &-39838666179965108
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609317809252389963}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 771a507fcf51c3f4c82d8233f0ab57a0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &609317810005428938
 GameObject:
   m_ObjectHideFlags: 0
