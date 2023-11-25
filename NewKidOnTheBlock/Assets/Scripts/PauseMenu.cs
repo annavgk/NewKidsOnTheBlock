@@ -14,19 +14,21 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject _player;
 
-    [Header("First Selected Options")]
-
-    [SerializeField] 
-    private GameObject _resumeFirst;
+    [SerializeField]
+    private GameObject _resumeButton;
 
     [SerializeField]
-    private GameObject _mainMenuFirst;
+    private GameObject _mainMenuButton;
 
     private void Awake()
     {
         _pauseMenuScreen = GameObject.Find("PauseMenuBackground"); // Finds the pause menu. Must be the background and not the PauseMenu object.
 
         _player = GameObject.Find("Player"); // Finds the player
+
+        _resumeButton = GameObject.Find("ResumeButton"); // Finds the Resume Button
+
+        _mainMenuButton = GameObject.Find("MainMenuButton"); // Finds the Main Menu Button
     }
     void Start()
     {
@@ -49,14 +51,19 @@ public class PauseMenu : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(_gamePaused)
-            {
-                GameResume();
-            }
-            else
+            if(!_gamePaused)
             {
                 GamePause();
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            EventSystem.current.SetSelectedGameObject(_resumeButton); // If Up Arrow is pressed, select the Resume button.
+        }
+        if(Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            EventSystem.current.SetSelectedGameObject(_mainMenuButton); // If Down Arrow is pressed, select the Main Menu button.
         }
     }
 
@@ -65,7 +72,7 @@ public class PauseMenu : MonoBehaviour
     {
         _gamePaused = true; // Sets the pause flag to true
 
-        _pauseMenuScreen.SetActive(true); // Show the pause menu
+        OpenMenu();
 
         Time.timeScale = 0f; // Freeze time
 
@@ -76,9 +83,20 @@ public class PauseMenu : MonoBehaviour
 
         _gamePaused = false; // Sets the pause flag to false
 
-        _pauseMenuScreen.SetActive(false); // Hide the pause menu
+        CloseMenu();
 
         Time.timeScale = 1f; // Resume time
+    }
+
+    private void OpenMenu()
+    {
+        _pauseMenuScreen.SetActive(true); // Show the pause menu
+        EventSystem.current.SetSelectedGameObject(_resumeButton); // Sets the selected object as the Resume button
+    }
+
+    private void CloseMenu()
+    {
+        _pauseMenuScreen.SetActive(false); // Hide the pause menu
     }
     #endregion
 
