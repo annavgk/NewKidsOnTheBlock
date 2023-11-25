@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,17 +11,22 @@ public class PauseMenu : MonoBehaviour
 
     private bool _gamePaused;
 
-    [Header("Scripts to Deactivate on Pause")] // Deactivating these scripts will keep the player and other objects from moving while the game is paused.
+    [SerializeField]
+    private GameObject _player;
+
+    [Header("First Selected Options")]
+
+    [SerializeField] 
+    private GameObject _resumeFirst;
 
     [SerializeField]
-    private PlayerController _playerController;
-
-    [SerializeField]
-    private Obstacle _obstacleScript;
+    private GameObject _mainMenuFirst;
 
     private void Awake()
     {
         _pauseMenuScreen = GameObject.Find("PauseMenuBackground"); // Finds the pause menu. Must be the background and not the PauseMenu object.
+
+        _player = GameObject.Find("Player"); // Finds the player
     }
     void Start()
     {
@@ -29,6 +35,18 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
+
+        if(_gamePaused)
+        {
+            if (_player != null)
+                _player.SetActive(false); // Deactivate the Player object if it exists in the scene. Keeps the player character from recieving any inputs while the game is paused.
+        }
+        else if(!_gamePaused)
+        {
+            if (_player != null)
+                _player.SetActive(true); // Activate the Player object if it exists in the scene
+        }
+
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(_gamePaused)
@@ -45,30 +63,22 @@ public class PauseMenu : MonoBehaviour
     #region Pause/Resume functions
     public void GamePause()
     {
+        _gamePaused = true; // Sets the pause flag to true
+
         _pauseMenuScreen.SetActive(true); // Show the pause menu
 
         Time.timeScale = 0f; // Freeze time
 
-        _playerController.enabled = false; // Deactivate the PlayerController script
-
-        if (_obstacleScript != null)
-            _obstacleScript.enabled = false; // Deactivate the Obstacle script if it exists in the scene
-
-        _gamePaused = true; // Sets the pause flag to true
     }
 
     public void GameResume()
     {
+
+        _gamePaused = false; // Sets the pause flag to false
+
         _pauseMenuScreen.SetActive(false); // Hide the pause menu
 
         Time.timeScale = 1f; // Resume time
-
-        _playerController.enabled = true; // Activate the PlayerController script
-
-        if(_obstacleScript != null)
-            _obstacleScript.enabled = true; // Activate the Obstacle script if it exists in the scene
-
-        _gamePaused = false; // Sets the pause flag to false
     }
     #endregion
 
@@ -76,14 +86,14 @@ public class PauseMenu : MonoBehaviour
 
     public void OnResumePress()
     {
-
+        GameResume(); // Resumes the game when the Resume button is pressed.
     }
 
     public void OnMainMenuPress()
     {
         //SceneManager.LoadScene("MainMenu");
 
-        // I can't find a main menu so I'm assuming we need to add it still.
+        // I can't find a main menu so I'm assuming we need to add it still. Loads the Main Menu when the Main Menu button is pressed.
     }
 
     #endregion
