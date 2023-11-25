@@ -57,11 +57,11 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        if(_gamePaused && Input.GetKeyDown(KeyCode.UpArrow))
         {
             EventSystem.current.SetSelectedGameObject(_resumeButton); // If Up Arrow is pressed, select the Resume button.
         }
-        if(Input.GetKeyDown(KeyCode.DownArrow))
+        if(_gamePaused && Input.GetKeyDown(KeyCode.DownArrow))
         {
             EventSystem.current.SetSelectedGameObject(_mainMenuButton); // If Down Arrow is pressed, select the Main Menu button.
         }
