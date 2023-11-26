@@ -18,7 +18,9 @@ public class PauseMenu : MonoBehaviour
     private GameObject _resumeButton;
 
     [SerializeField]
-    private GameObject _mainMenuButton;
+    private GameObject _controls;
+
+    private bool _controlsOpen = false;
 
     private void Awake()
     {
@@ -28,11 +30,13 @@ public class PauseMenu : MonoBehaviour
 
         _resumeButton = GameObject.Find("ResumeButton"); // Finds the Resume Button
 
-        _mainMenuButton = GameObject.Find("MainMenuButton"); // Finds the Main Menu Button
+        _controls = GameObject.Find("Controls"); // Finds the Controls screen
     }
     void Start()
     {
         _pauseMenuScreen.SetActive(false); // Hides the pause menu
+
+        _controls.SetActive(false); // Hides the controls screen
     }
 
     void Update()
@@ -49,11 +53,17 @@ public class PauseMenu : MonoBehaviour
                 _player.SetActive(true); // Activate the Player object if it exists in the scene
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && _controlsOpen == false) // After pressing escape, if the controls screen is closed...
         {
-            if(!_gamePaused)
+            if(!_gamePaused) // If the game is not already paused...
             {
-                GamePause();
+                GamePause(); // Pause the game
+            }
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && _controlsOpen == true) // After pressing escape, if the controls screen is open...
+        {
+            {
+                _controls.SetActive(false); // Hides the controls screen
             }
         }
     }
@@ -81,7 +91,7 @@ public class PauseMenu : MonoBehaviour
 
     private void OpenMenu()
     {
-        _pauseMenuScreen.SetActive(true); // Show the pause menu
+        _pauseMenuScreen.SetActive(true); // Shows the pause menu
         EventSystem.current.SetSelectedGameObject(_resumeButton); // Sets the selected object as the Resume button
     }
 
@@ -100,14 +110,13 @@ public class PauseMenu : MonoBehaviour
 
     public void OnControlsPress()
     {
-
+        _controls.SetActive(true); // Shows the controls screen
+        _controlsOpen = true; // Flags the controls screen as being open
     }
 
     public void OnMainMenuPress()
     {
-        //SceneManager.LoadScene("MainMenu");
-
-        // I can't find a main menu so I'm assuming we need to add it still. Loads the Main Menu when the Main Menu button is pressed.
+        SceneManager.LoadScene("MainMenu"); // Loads the Main Menu scene
     }
 
     #endregion
