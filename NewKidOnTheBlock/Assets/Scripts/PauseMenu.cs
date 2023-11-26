@@ -17,6 +17,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject _controls;
 
+    [SerializeField]
+    private GameObject _resumeButton;
+
     private bool _controlsOpen = false;
 
     private void Awake()
@@ -32,6 +35,9 @@ public class PauseMenu : MonoBehaviour
         _pauseMenuScreen.SetActive(false); // Hides the pause menu
 
         _controls.SetActive(false); // Hides the controls screen
+
+        Cursor.lockState = CursorLockMode.Locked; // Locks the cursor
+
     }
 
     void Update()
@@ -60,6 +66,11 @@ public class PauseMenu : MonoBehaviour
             {
                 _controls.SetActive(false); // Hides the controls screen
             }
+        }
+
+        if(Input.GetMouseButtonDown(0) && _gamePaused == true)
+        {
+            EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject); // If anyone accidentally clicks the screen while the game is paused, the selection will automatically return to the Resume button.
         }
     }
 
