@@ -56,15 +56,6 @@ public class PauseMenu : MonoBehaviour
                 GamePause();
             }
         }
-
-        if(_gamePaused && Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            EventSystem.current.SetSelectedGameObject(_resumeButton); // If Up Arrow is pressed, select the Resume button.
-        }
-        if(_gamePaused && Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            EventSystem.current.SetSelectedGameObject(_mainMenuButton); // If Down Arrow is pressed, select the Main Menu button.
-        }
     }
 
     #region Pause/Resume functions
@@ -105,6 +96,11 @@ public class PauseMenu : MonoBehaviour
     public void OnResumePress()
     {
         GameResume(); // Resumes the game when the Resume button is pressed.
+    }
+
+    public void OnControlsPress()
+    {
+
     }
 
     public void OnMainMenuPress()
