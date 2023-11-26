@@ -15,9 +15,6 @@ public class PauseMenu : MonoBehaviour
     private GameObject _player;
 
     [SerializeField]
-    private GameObject _resumeButton;
-
-    [SerializeField]
     private GameObject _controls;
 
     private bool _controlsOpen = false;
@@ -27,8 +24,6 @@ public class PauseMenu : MonoBehaviour
         _pauseMenuScreen = GameObject.Find("PauseMenuBackground"); // Finds the pause menu. Must be the background and not the PauseMenu object.
 
         _player = GameObject.Find("Player"); // Finds the player
-
-        _resumeButton = GameObject.Find("ResumeButton"); // Finds the Resume Button
 
         _controls = GameObject.Find("Controls"); // Finds the Controls screen
     }
@@ -92,7 +87,6 @@ public class PauseMenu : MonoBehaviour
     private void OpenMenu()
     {
         _pauseMenuScreen.SetActive(true); // Shows the pause menu
-        EventSystem.current.SetSelectedGameObject(_resumeButton); // Sets the selected object as the Resume button
     }
 
     private void CloseMenu()
