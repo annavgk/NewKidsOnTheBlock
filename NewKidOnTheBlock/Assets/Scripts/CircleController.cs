@@ -17,7 +17,7 @@ public class CircleController : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X)) //swaps player object
         {
             _square.gameObject.SetActive(true);
             gameObject.SetActive(false);
@@ -30,20 +30,19 @@ public class CircleController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(!IsGrounded())
+        if(!IsGrounded()) //player can only move when they are not on the ground
         {
             _horizontal = Input.GetAxisRaw("Horizontal");
             _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
-            if(_rb.velocity.y < 0)
+            if(_rb.velocity.y < 0) //counts how long player is falling
             {
-                Debug.Log("ghj");
                 _distanceFallen++;
             }
         }
         else
         {
             _rb.velocity = new Vector2(0, _rb.velocity.y);
-            if (_distanceFallen > 10)
+            if (_distanceFallen > 10) //player only bounces if thye have fallen a certain height
             {
                 _rb.velocity = new Vector2(_rb.velocity.x, _jumpingPower);
                 _distanceFallen = 0;

@@ -59,7 +59,7 @@ public class GravitySwitch : MonoBehaviour
                         break;
                 }
             }
-            if(_edge ==true)
+            if(_edge ==true) //moves player to edge to stop them from falling
             {
                 other.GetComponentInParent<Transform>().position = transform.position;
             }

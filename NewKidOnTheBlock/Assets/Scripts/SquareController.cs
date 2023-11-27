@@ -32,7 +32,7 @@ public class SquareController : MonoBehaviour
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
         }
 
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetKeyDown(KeyCode.Z)) //swaps player object
         {
             _circle.gameObject.SetActive(true);
             gameObject.SetActive(false);
