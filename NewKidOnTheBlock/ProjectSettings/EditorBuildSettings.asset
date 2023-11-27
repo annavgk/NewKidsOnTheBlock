@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/MainMenu.unity
     guid: ce970b07d9e5ff64dbf6b57a74255242
   - enabled: 1
-    path: Assets/Scenes/Levels/Level1.unity
+    path: Assets/Scenes/BlakeGym.unity
     guid: 5a4d11e87fb470a4b8f7ffc3be218f48
   - enabled: 1
     path: Assets/Scenes/Levels/Level2.unity

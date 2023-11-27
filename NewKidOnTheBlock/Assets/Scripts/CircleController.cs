@@ -4,59 +4,58 @@ using UnityEngine;
 
 public class CircleController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] private PlayerController controller;
-    [HideInInspector] public bool active = false;
-    [SerializeField]  private Rigidbody2D rb;
-    private PhysicsMaterial2D original;
-    [SerializeField] private PhysicsMaterial2D circlePhysics;
-    [SerializeField] private float maxVelocity = 10f;
-    [SerializeField] private Animator anim;
-    void Start()
+    private float _horizontal;
+    [SerializeField] private float _speed = 1f;
+    [SerializeField] private float _jumpingPower = 16f;
+    [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Animator _anim;
+    [SerializeField] private SquareController _square;
+    [SerializeField] private TriangleController _triangle;
+    private int _distanceFallen;
+    private void Update()
     {
-        original = rb.sharedMaterial;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        /*
-        float speed = Vector3.Magnitude(rb.velocity);  // test current object speed
-
-        if (speed > maxVelocity)
-
+        if (Input.GetKeyDown(KeyCode.X))
         {
-            Debug.Log(Vector3.Magnitude(rb.velocity));
-            float brakeSpeed = speed - maxVelocity;  // calculate the speed decrease
-
-            Vector2 normalisedVelocity = rb.velocity.normalized;
-            Vector2 brakeVelocity = normalisedVelocity * (brakeSpeed * .25f);  // make the brake Vector3 value
-
-            rb.AddForce(-brakeVelocity);  // apply opposing brake force
+            _square.gameObject.SetActive(true);
+            gameObject.SetActive(false);
         }
-        */
-        Debug.Log(rb.velocity.sqrMagnitude);
-        Debug.Log(maxVelocity);
-        if (rb.velocity.sqrMagnitude > maxVelocity && active == true)
+        else if (Input.GetKeyDown(KeyCode.Z))
         {
-            //Debug.Log(rb.velocity.sqrMagnitude);
-            //smoothness of the slowdown is controlled by the 0.99f, 
-            //0.5f is less smooth, 0.9999f is more smooth
-            rb.velocity *= 0.75f;
+            _triangle.gameObject.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
-
-    public void activate()
+    private void FixedUpdate()
     {
-        anim.SetBool("Circle", true);
-        active = true;
-        controller.canJump = false;
-        rb.sharedMaterial = circlePhysics;
+        if(!IsGrounded())
+        {
+            _horizontal = Input.GetAxisRaw("Horizontal");
+            _rb.velocity = new Vector2(_horizontal * _speed, _rb.velocity.y);
+            if(_rb.velocity.y < 0)
+            {
+                Debug.Log("ghj");
+                _distanceFallen++;
+            }
+        }
+        else
+        {
+            _rb.velocity = new Vector2(0, _rb.velocity.y);
+            if (_distanceFallen > 10)
+            {
+                _rb.velocity = new Vector2(_rb.velocity.x, _jumpingPower);
+                _distanceFallen = 0;
+            }
+            else
+            {
+                _distanceFallen = 0;
+            }
+        }
     }
-    public void deactivate()
+    private bool IsGrounded()
     {
-        anim.SetBool("Circle", false);
-        active = false;
-        rb.sharedMaterial = original;
+        return Physics2D.OverlapCircle(groundCheck.position, 0.01f, groundLayer);
     }
 }

@@ -9,15 +9,18 @@ public class GravitySwitch : MonoBehaviour
     [SerializeField] private string direction;
 
     [SerializeField] private string secondaryDirection;
+    [SerializeField] private bool _edge;
     // Start is called before the first frame update
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            if (other?.GetComponent<TriangleController>().active == true)
+            if(other?.GetComponent<TriangleController>().gameObject.activeSelf == true)
             {
+                Debug.Log("a");
                 switch (direction)
                 {
                     case "up":
@@ -56,7 +59,10 @@ public class GravitySwitch : MonoBehaviour
                         break;
                 }
             }
-
+            if(_edge ==true)
+            {
+                other.GetComponentInParent<Transform>().position = transform.position;
+            }
         }
     }
         
@@ -86,6 +92,7 @@ public class GravitySwitch : MonoBehaviour
                 break;
                 
         }
+        
     }
 }
    
