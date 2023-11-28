@@ -23,9 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator anim;
 
 
-    //[SerializeField] private Sprite square;
-    //[SerializeField] private Sprite triangle;
-    //[SerializeField] private Sprite circle;
+    
 
     [SerializeField] private Sprite[] _sprites; //contains the sprites for each shape. will likely end up using a different method to swap shapes later
     private int _spriteCount = 0;//tracks the current sprite we are on
@@ -143,8 +141,8 @@ public class PlayerController : MonoBehaviour
     private void SwapShape() //swaps the shape to the next in the list
     {
         AudioManager.Instance.PlaySwitch();
-        _triController.deactivate();
-        _circController.deactivate();
+      //  _triController.deactivate();
+       // _circController.deactivate();
 
         _spriteCount++;
         if (_spriteCount < _sprites.Length)
@@ -161,11 +159,11 @@ public class PlayerController : MonoBehaviour
         }
         if(_spriteCount == 1)
         {
-            _circController.activate();
+       //     _circController.activate();
         }
         else if (_spriteCount == 2)
         {
-            _triController.activate();
+         //   _triController.activate();
         }
 
 
