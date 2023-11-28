@@ -45,12 +45,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level8.unity
     guid: d1969241bf4b9ec41af3f04f71f2f986
   - enabled: 1
-    path: Assets/Scenes/Levels/Transitions/Transition4.unity
-    guid: 1f0318a6d4bd3d248ada005088e8c946
+    path: Assets/Scenes/ShayGym.unity
+    guid: a4a0ee1f70b4d5c43bd634a3dc961c9f
   - enabled: 1
-    path: Assets/Scenes/Levels/YouWin.unity
-    guid: c654699ff7f0bfc4ab056683dcaba509
-  - enabled: 1
-    path: Assets/Scenes/Levels/YouDie.unity
-    guid: bdb60a33546037549863f59b17b8720f
+    path: Assets/Scenes/MainMenu.unity
+    guid: d11d995c6cfb0e04ab86600593b6105c
   m_configObjects: {}
