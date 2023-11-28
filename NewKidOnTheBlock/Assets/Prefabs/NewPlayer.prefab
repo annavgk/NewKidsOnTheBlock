@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
-  _jumpingPower: 3
+  _jumpingPower: 3.3
   _rb: {fileID: 7619410663329833333}
   groundCheck: {fileID: 7619410664874629247}
   groundLayer:
@@ -480,6 +480,8 @@ MonoBehaviour:
   _speed: 1
   _rb: {fileID: 7619410663329833333}
   _anim: {fileID: 0}
+  _square: {fileID: 7619410663478551186}
+  _circle: {fileID: 7619410663495274505}
 --- !u!60 &7619410665381049423
 PolygonCollider2D:
   m_ObjectHideFlags: 0
