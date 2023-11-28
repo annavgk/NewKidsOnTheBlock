@@ -320,7 +320,7 @@ MonoBehaviour:
     m_Bits: 8
   _anim: {fileID: 0}
   _square: {fileID: 7619410663478551186}
-  _triangle: {fileID: 0}
+  _triangle: {fileID: 7619410665381049416}
 --- !u!61 &7619410663495274507
 BoxCollider2D:
   m_ObjectHideFlags: 0

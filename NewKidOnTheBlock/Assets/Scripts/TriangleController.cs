@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TriangleController : MonoBehaviour
 {
-    [SerializeField] private Transform Points;
     private float _horizontal;
     [SerializeField] private float _speed = 8f;
     [SerializeField] private Rigidbody2D _rb;
@@ -24,11 +23,13 @@ public class TriangleController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X)) //swaps player object
         {
             _circle.gameObject.SetActive(true);
+            Physics2D.gravity = new Vector2(0, -9.8f);
             gameObject.SetActive(false);
         }
         else if (Input.GetKeyDown(KeyCode.Z))
         {
             _square.gameObject.SetActive(true);
+            Physics2D.gravity = new Vector2(0, -9.8f);
             gameObject.SetActive(false);
         }
 
