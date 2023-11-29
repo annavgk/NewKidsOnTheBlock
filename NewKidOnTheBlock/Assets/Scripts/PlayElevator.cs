@@ -35,6 +35,7 @@ public class PlayElevator : MonoBehaviour
     void Start()
     {
         _elevatorMusic = GetComponent<AudioSource>(); // Gets the AudioSource from the object
+        GameManager.Instance.GetComponent<AudioSource>().Pause();
     }
 
     private void Move(Transform target)

@@ -18,7 +18,7 @@ public class GravitySwitch : MonoBehaviour
         
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            if(other?.GetComponent<TriangleController>().gameObject.activeSelf == true)
+            if(other?.GetComponent<TriangleController>()?.gameObject.activeSelf == true)
             {
                 Debug.Log("a");
                 switch (direction)
