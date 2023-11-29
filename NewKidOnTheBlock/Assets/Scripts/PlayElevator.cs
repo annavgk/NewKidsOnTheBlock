@@ -16,7 +16,7 @@ public class PlayElevator : MonoBehaviour
     [SerializeField]
     private Transform _endPoint;
 
-    public float Speed = 0.0002f;
+    public float Speed = 0.1f;
 
     private bool _platformMovingUp; // Check to see if the platform is moving towards the end point
 
