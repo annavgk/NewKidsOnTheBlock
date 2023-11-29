@@ -10,7 +10,7 @@ public class Dialogue : MonoBehaviour
 
     private void Awake()
     {
-        _dialogueText = GameObject.Find("DialogueText"); // Gets the dialogue text
+        _dialogueText = GetComponentInChildren<TextMeshProUGUI>().gameObject; // Gets the dialogue text
     }
     void Start()
     {

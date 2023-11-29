@@ -272,6 +272,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4261582364818503292, guid: e90098c1839cb0b409f8c228f7d180c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261582364818503292, guid: e90098c1839cb0b409f8c228f7d180c3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261582364818503292, guid: e90098c1839cb0b409f8c228f7d180c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261582364818503292, guid: e90098c1839cb0b409f8c228f7d180c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8022883555239455501, guid: e90098c1839cb0b409f8c228f7d180c3, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -1915,12 +1931,20 @@ PrefabInstance:
       value: Pianos are MADE to be jumped on
       objectReference: {fileID: 0}
     - target: {fileID: 4699931520383831473, guid: b85772df48893f043a2c6fcab5e7c4e6, type: 3}
+      propertyPath: m_fontSize
+      value: 25.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699931520383831473, guid: b85772df48893f043a2c6fcab5e7c4e6, type: 3}
       propertyPath: m_margin.w
       value: -81.45621
       objectReference: {fileID: 0}
     - target: {fileID: 4699931520383831473, guid: b85772df48893f043a2c6fcab5e7c4e6, type: 3}
       propertyPath: m_margin.x
       value: -13.353485
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699931520383831473, guid: b85772df48893f043a2c6fcab5e7c4e6, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25.1
       objectReference: {fileID: 0}
     - target: {fileID: 5414293975564614094, guid: b85772df48893f043a2c6fcab5e7c4e6, type: 3}
       propertyPath: m_AnchoredPosition.x
