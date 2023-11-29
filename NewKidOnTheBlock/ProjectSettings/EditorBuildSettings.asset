@@ -80,4 +80,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewLevels/Level10New.unity
     guid: 0cb4755946d36224ba682d22c2d49f38
+  - enabled: 1
+    path: Assets/Scenes/NewLevels/YouWin.unity
+    guid: 4e24bc3eaeb15934f9b3604ade31642e
+  - enabled: 1
+    path: Assets/Scenes/NewLevels/YouDied.unity
+    guid: 78a72879ac8ce4d42a3a236795cdced2
   m_configObjects: {}

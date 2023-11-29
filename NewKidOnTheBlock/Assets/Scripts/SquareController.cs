@@ -14,7 +14,10 @@ public class SquareController : MonoBehaviour
     [SerializeField] private CircleController _circle;
     [SerializeField] private TriangleController _triangle;
 
-
+    private void Start()
+    {
+        Physics2D.gravity = new Vector2(0, -9.8f);
+    }
 
     void Update()
     {
