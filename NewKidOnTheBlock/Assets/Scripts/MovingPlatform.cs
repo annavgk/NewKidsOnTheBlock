@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Saw : Obstacle
+public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] private GameObject _endPosition;
     [SerializeField] private float _speed = .2f;
@@ -10,7 +10,8 @@ public class Saw : Obstacle
     private Vector3 startPosition;
     private Vector3 _target;
     private Vector3 endPosition;
-    private bool _stopped = false;
+    [SerializeField] private bool _stopped = false;
+    
 
     private void Awake()
     {
@@ -37,7 +38,7 @@ public class Saw : Obstacle
     public void Activate()
     {
         _stopped = !_stopped;
-        if(_stopped)
+        if (_stopped)
         {
             _setSpeed = 0;
         }
@@ -46,7 +47,4 @@ public class Saw : Obstacle
             _setSpeed = _speed;
         }
     }
-
-
-
-}   
+}
