@@ -13,6 +13,7 @@ public class CircleController : MonoBehaviour
     [SerializeField] private Animator _anim;
     [SerializeField] private SquareController _square;
     [SerializeField] private TriangleController _triangle;
+    [SerializeField] private float _fallRequierment; 
     private int _distanceFallen;
     private void Update()
     {
@@ -42,7 +43,7 @@ public class CircleController : MonoBehaviour
         else
         {
             _rb.velocity = new Vector2(0, _rb.velocity.y);
-            if (_distanceFallen > 10) //player only bounces if thye have fallen a certain height
+            if (_distanceFallen > _fallRequierment) //player only bounces if thye have fallen a certain height
             {
                 AudioManager.Instance.PlayJump();
                 _rb.velocity = new Vector2(_rb.velocity.x, _jumpingPower);
