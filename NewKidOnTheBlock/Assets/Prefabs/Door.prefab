@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _openDoor: {fileID: 21300000, guid: 4f2cbb40597324c4e9f467defc3781b8, type: 3}
   _closeDoor: {fileID: 21300000, guid: c76fc1b8d5d043f4bab4f91be5c57820, type: 3}
-  _open: 0
+  _open: 1
 --- !u!61 &-3257669694085563319
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -111,7 +111,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.029807072, y: 0}
