@@ -14,17 +14,11 @@ public class PlayElevator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "NewPlayer") // If the object colliding is the player character...
-        {
-            _elevatorMusic.Play();
-        }
+        _elevatorMusic.Play();
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name == "NewPlayer") // If the object leaving the collider is the player character...
-        {
-            _elevatorMusic.Pause();
-        }
+        _elevatorMusic.Pause();
     }
 }
