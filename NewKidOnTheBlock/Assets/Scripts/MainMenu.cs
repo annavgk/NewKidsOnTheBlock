@@ -23,6 +23,11 @@ public class MainMenu : MonoBehaviour
     }
     void Start()
     {
+        if(GameManager.Instance.CurrentHealth < 4)
+        {
+            GameManager.Instance.ChangeHealth(-(4 - GameManager.Instance.CurrentHealth));
+        }
+        
         _controls.SetActive(false); // Hides the controls screen
 
         Cursor.lockState = CursorLockMode.Locked; // Locks the cursor

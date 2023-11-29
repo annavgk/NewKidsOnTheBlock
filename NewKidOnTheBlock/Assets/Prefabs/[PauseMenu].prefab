@@ -796,7 +796,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4347607333677752225}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: OnMainMenuPress
+        m_MethodName: OnControlsPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
