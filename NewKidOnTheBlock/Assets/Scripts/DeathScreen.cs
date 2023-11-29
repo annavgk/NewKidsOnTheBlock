@@ -25,6 +25,6 @@ public class DeathScreen : MonoBehaviour
         start.Play();
         yield return new WaitForSeconds(.287f);
         int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("MainMenu");
     }
 }

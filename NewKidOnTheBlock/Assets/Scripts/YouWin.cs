@@ -10,7 +10,7 @@ public class YouWin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        theme.Play();
     }
 
     // Update is called once per frame
@@ -26,6 +26,6 @@ public class YouWin : MonoBehaviour
         start.Play();
         yield return new WaitForSeconds(.287f);
         int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("MainMenu");
     }
 }
