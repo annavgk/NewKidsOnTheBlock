@@ -44,6 +44,7 @@ public class CircleController : MonoBehaviour
             _rb.velocity = new Vector2(0, _rb.velocity.y);
             if (_distanceFallen > 10) //player only bounces if thye have fallen a certain height
             {
+                AudioManager.Instance.PlayJump();
                 _rb.velocity = new Vector2(_rb.velocity.x, _jumpingPower);
                 _distanceFallen = 0;
             }

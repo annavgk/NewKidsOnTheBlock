@@ -31,7 +31,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(_open && collision.gameObject.tag == "Player")
+        if(_open && collision.gameObject.layer == 7)
         {
             Debug.Log("you win");
             GameManager.Instance.NextScene();

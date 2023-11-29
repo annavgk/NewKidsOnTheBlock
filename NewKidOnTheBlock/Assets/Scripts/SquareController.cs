@@ -23,6 +23,7 @@ public class SquareController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             _anim.SetTrigger("Jump");
+            //AudioManager.Instance.PlayJump();
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpingPower);
         }
 
