@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if(SceneManager.GetActiveScene().name == "YouWin" || SceneManager.GetActiveScene().name == "YouDie")
+        if(SceneManager.GetActiveScene().name == "YouWin" || SceneManager.GetActiveScene().name == "YouDied")
         {
             Destroy(this.gameObject);
         }
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         else if(_currentHealth <= 0)
         {
             _currentHealth = _maxHealth;
-            SceneManager.LoadScene("YouDie");
+            SceneManager.LoadScene("YouDied");
         }
     }
 

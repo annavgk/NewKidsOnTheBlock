@@ -19,15 +19,17 @@ public class Dialogue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.name == "Player") // If the object colliding is the player character...
+        
+        if(other.gameObject.layer == 7) // If the object colliding is the player character...
         {
+            Debug.Log("ahh");
             _dialogueText.SetActive(true); // Shows the dialoge text
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name == "Player") // If the object colliding is the player character...
+        if (other.gameObject.layer == 7) // If the object colliding is the player character...
         {
             _dialogueText.SetActive(false); // Shows the dialoge text
         }

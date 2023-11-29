@@ -18,7 +18,7 @@ public class GravitySwitch : MonoBehaviour
         
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            if(other?.GetComponent<TriangleController>().gameObject.activeSelf == true)
+            if(other?.GetComponent<TriangleController>()?.gameObject.activeSelf == true)
             {
                 Debug.Log("a");
                 switch (direction)
@@ -29,6 +29,11 @@ public class GravitySwitch : MonoBehaviour
                             Secondary();
                             break;
                         }
+
+                        if (_edge == true) //moves player to edge to stop them from falling
+                        {
+                            other.GetComponentInParent<Transform>().position = transform.position;
+                        }
                         Physics2D.gravity = new Vector2(0, 9.8f);
                         break;
                     case "down":
@@ -36,6 +41,11 @@ public class GravitySwitch : MonoBehaviour
                         {
                             Secondary();
                             break;
+                        }
+
+                        if (_edge == true) //moves player to edge to stop them from falling
+                        {
+                            other.GetComponentInParent<Transform>().position = transform.position;
                         }
                         Physics2D.gravity = new Vector2(0, -9.8f);
                         break;
@@ -45,6 +55,11 @@ public class GravitySwitch : MonoBehaviour
                             Secondary();
                             break;
                         }
+
+                        if (_edge == true) //moves player to edge to stop them from falling
+                        {
+                            other.GetComponentInParent<Transform>().position = transform.position;
+                        }
                         Physics2D.gravity = new Vector2(-9.8f, 0);
                         break;
                     case "right":
@@ -53,16 +68,19 @@ public class GravitySwitch : MonoBehaviour
                             Secondary();
                             break;
                         }
+
+                        
                         Physics2D.gravity = new Vector2(9.8f, 0);
+                        if (_edge == true) //moves player to edge to stop them from falling
+                        {
+                            other.GetComponentInParent<Transform>().position = transform.position;
+                        }
                         break;
                     default:
                         break;
                 }
             }
-            if(_edge ==true) //moves player to edge to stop them from falling
-            {
-                other.GetComponentInParent<Transform>().position = transform.position;
-            }
+            
         }
     }
         

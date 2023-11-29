@@ -132,6 +132,7 @@ public class PlayerController : MonoBehaviour
                 _rb.AddForce(new Vector2(0f, _jumpForce));
                 
             }
+            
         }
        
 

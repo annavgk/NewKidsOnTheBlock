@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private static AudioManager instance;
+    
 
     [SerializeField]
     private AudioSource jump;
@@ -18,27 +18,24 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioSource switchShape;
 
+    private static AudioManager _instance;
     public static AudioManager Instance
     {
         get
         {
-            return instance;
+            return _instance;
         }
     }
 
     void Awake()
     {
-        // Keeps the correct instance from being destroyed on load
-        if (instance == null)
+        if (_instance != null)
         {
-            instance = this;
-            //DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
+            return;
         }
-        else
-        {
-            // If there are multiple instances, destroy this one
-            Destroy(this);
-        }
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void PlayJump()
